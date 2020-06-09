@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/font1.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/check.png" type="Texture" id=3]
+[ext_resource path="res://assets/square.png" type="Texture" id=4]
+[ext_resource path="res://scripts/item.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="Controlitem" type="Control"]
+margin_right = 300.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 300, 300 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="ColorRect" parent="."]
+margin_right = 300.0
+margin_bottom = 300.0
+color = Color( 0.105469, 0.105469, 0.105469, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="item" type="Sprite" parent="."]
+self_modulate = Color( 0, 0, 0, 0.407843 )
+position = Vector2( 147.463, 129.044 )
+scale = Vector2( 1.07941, 1.07941 )
+
+[node name="icon" type="Sprite" parent="item"]
+position = Vector2( 3.99515, 2.42044 )
+scale = Vector2( 0.926431, 0.926431 )
+
+[node name="price" type="Label" parent="."]
+margin_top = 222.134
+margin_right = 292.0
+margin_bottom = 291.134
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.835294, 0.243137, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="touch" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 30, 30 )
+normal = ExtResource( 4 )
+
+[node name="check" type="Sprite" parent="."]
+visible = false
+position = Vector2( 242.905, 55.4247 )
+scale = Vector2( 0.230823, 0.230823 )
+texture = ExtResource( 3 )
+[connection signal="pressed" from="touch" to="." method="_on_touch_pressed"]

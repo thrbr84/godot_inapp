@@ -1,0 +1,108 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://assets/mask.png" type="Texture" id=1]
+[ext_resource path="res://assets/person/jump/Jump__005.png" type="Texture" id=2]
+[ext_resource path="res://assets/person/dead/Dead__000.png" type="Texture" id=3]
+[ext_resource path="res://assets/person/jump/Jump__004.png" type="Texture" id=4]
+[ext_resource path="res://scripts/minigame/player.gd" type="Script" id=5]
+[ext_resource path="res://assets/person/jump/Jump__009.png" type="Texture" id=6]
+[ext_resource path="res://assets/person/run/Run__007.png" type="Texture" id=7]
+[ext_resource path="res://assets/person/run/Run__008.png" type="Texture" id=8]
+[ext_resource path="res://assets/person/run/Run__009.png" type="Texture" id=9]
+[ext_resource path="res://assets/person/run/Run__001.png" type="Texture" id=10]
+[ext_resource path="res://assets/person/jump/Jump__006.png" type="Texture" id=11]
+[ext_resource path="res://assets/person/jump/Jump__002.png" type="Texture" id=12]
+[ext_resource path="res://assets/person/dead/Dead__004.png" type="Texture" id=13]
+[ext_resource path="res://assets/person/dead/Dead__003.png" type="Texture" id=14]
+[ext_resource path="res://assets/person/dead/Dead__001.png" type="Texture" id=15]
+[ext_resource path="res://assets/person/jump/Jump__003.png" type="Texture" id=16]
+[ext_resource path="res://assets/person/dead/Dead__009.png" type="Texture" id=17]
+[ext_resource path="res://assets/person/dead/Dead__007.png" type="Texture" id=18]
+[ext_resource path="res://assets/person/dead/Dead__008.png" type="Texture" id=19]
+[ext_resource path="res://assets/person/dead/Dead__006.png" type="Texture" id=20]
+[ext_resource path="res://assets/person/dead/Dead__002.png" type="Texture" id=21]
+[ext_resource path="res://assets/person/jump/Jump__008.png" type="Texture" id=22]
+[ext_resource path="res://assets/person/jump/Jump__007.png" type="Texture" id=23]
+[ext_resource path="res://assets/person/run/Run__006.png" type="Texture" id=24]
+[ext_resource path="res://assets/person/run/Run__005.png" type="Texture" id=25]
+[ext_resource path="res://assets/person/dead/Dead__005.png" type="Texture" id=26]
+[ext_resource path="res://assets/person/run/Run__002.png" type="Texture" id=27]
+[ext_resource path="res://assets/person/run/Run__003.png" type="Texture" id=28]
+[ext_resource path="res://assets/person/run/Run__004.png" type="Texture" id=29]
+[ext_resource path="res://assets/person/run/Run__000.png" type="Texture" id=30]
+[ext_resource path="res://assets/person/jump/Jump__001.png" type="Texture" id=31]
+[ext_resource path="res://assets/person/jump/Jump__000.png" type="Texture" id=32]
+[ext_resource path="res://assets/bubble.png" type="Texture" id=33]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 30 ), ExtResource( 10 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "run",
+"speed": 18.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 15 ), ExtResource( 21 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 26 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 17 ) ],
+"loop": false,
+"name": "dead",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 31 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "jump",
+"speed": 14.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 63.0088
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0.1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0848486, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.567901 )
+colors = PoolColorArray( 1, 0, 0, 0.0666667, 0.984375, 0, 0, 1 )
+
+[node name="player" type="KinematicBody2D" groups=[
+"player",
+]]
+script = ExtResource( 5 )
+
+[node name="anim" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -242 )
+frames = SubResource( 1 )
+animation = "run"
+frame = 7
+playing = true
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2( -40, -116 )
+shape = SubResource( 2 )
+
+[node name="camera" type="Camera2D" parent="."]
+offset = Vector2( 150, 0 )
+current = true
+limit_top = 0
+limit_bottom = 0
+
+[node name="blood" type="CPUParticles2D" parent="."]
+position = Vector2( -19.1333, -112.408 )
+emitting = false
+amount = 20
+one_shot = true
+speed_scale = 2.0
+local_coords = false
+texture = ExtResource( 1 )
+direction = Vector2( -1, -1 )
+spread = 180.0
+gravity = Vector2( 100, -150 )
+initial_velocity = 150.0
+initial_velocity_random = 1.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 3 )
+color_ramp = SubResource( 4 )
+
+[node name="bubble" type="Sprite" parent="."]
+visible = false
+position = Vector2( -42.1899, -252.25 )
+scale = Vector2( 1.25862, 1.24904 )
+texture = ExtResource( 33 )
