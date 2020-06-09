@@ -29,11 +29,11 @@ func _iap_init():
 	#"android.test.item_unavailable"
 	
 	_loadProducts([
-		#"android.test.purchased"
-		"extra_life", 
-		"diamonds1",
-		"diamonds3",
-		"diamonds5"
+		"android.test.purchased"
+		#"extra_life", 
+		#"diamonds1",
+		#"diamonds3",
+		#"diamonds5"
 	])
 
 func _loadProducts(products):
