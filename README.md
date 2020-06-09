@@ -13,9 +13,9 @@ Google Play purchase in-app
 
 ----------
 
-- https://www.youtube.com/watch?v= (PT-BR)
+- https://www.youtube.com/watch?v=9i30HDtgbAA (PT-BR)
 
-[![Video com a explicação](https://img.youtube.com/vi//0.jpg)](https://www.youtube.com/watch?v=)
+[![Video com a explicação](https://img.youtube.com/vi/9i30HDtgbAA/0.jpg)](https://www.youtube.com/watch?v=9i30HDtgbAA)
 
 ----------
 
