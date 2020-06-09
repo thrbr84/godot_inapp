@@ -76,7 +76,6 @@ func _on_IAP_consume_not_required():
 
 func _on_IAP_consume_success(product_id):
 	$ui/debug.text = str("Consume success: ", product_id)
-	_mark_checked(product_id, false)
 	
 	# change button to purchase action
 	_set_details(product_id, {
